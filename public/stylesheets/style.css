@@ -7,6 +7,10 @@ a {
   color: #00B7FF;
 }
 
+.card a {
+  color: black;
+}
+
 /* Add your CSS styles to make the navbar look pretty */
 .navbar {
   background-color: #333;
@@ -34,6 +38,10 @@ a {
   color: white;
   font-weight: bold;
   transition: color 0.3s;
+}
+
+ul .dropdown-menu {
+  background-color: #333;
 }
 
 .navbar-item a:hover {
@@ -95,3 +103,93 @@ a {
   }
 }
 
+/* Reglas generales para el contenedor de tarjetas */
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+/* Reglas para las tarjetas */
+.card {
+  flex: 0 0 calc(50% - 20px); /* Muestra 2 tarjetas por fila en la vista para celular */
+  max-width: calc(50% - 20px); /* Evita que las tarjetas se expandan más allá del 50% del ancho en la vista para celular */
+  box-sizing: border-box;
+}
+
+/* Reglas generales para el contenedor de tarjetas */
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+/* Reglas para las tarjetas */
+.card {
+  flex: 0 0 calc(50% - 20px); /* Muestra 2 tarjetas por fila en la vista para celular */
+  max-width: calc(50% - 20px); /* Evita que las tarjetas se expandan más allá del 50% del ancho en la vista para celular */
+  box-sizing: border-box;
+}
+
+/* Reglas para las imágenes en las tarjetas */
+.card-image {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Reglas para pantallas pequeñas, como celulares */
+@media (max-width: 767px) {
+  .card {
+    flex: 0 0 calc(50% - 20px); /* Muestra 2 tarjetas por fila en la vista para celular */
+    max-width: calc(50% - 20px); /* Evita que las tarjetas se expandan más allá del 50% del ancho en la vista para celular */
+  }
+}
+
+
+/* Reglas para pantallas medianas, como tabletas */
+@media (min-width: 768px) and (max-width: 991px) {
+  .card {
+    flex: 0 0 calc(25% - 20px); /* Muestra 4 tarjetas por fila en la vista para tabletas */
+    max-width: calc(25% - 20px); /* Evita que las tarjetas se expandan más allá del 25% del ancho en la vista para tabletas */
+  }
+}
+
+/* Reglas para pantallas grandes, como computadoras de escritorio */
+@media (min-width: 992px) {
+  .card {
+    flex: 0 0 calc(16.66% - 20px); /* Muestra 6 tarjetas por fila en la vista para PC */
+    max-width: calc(16.66% - 20px); /* Evita que las tarjetas se expandan más allá del 16.66% del ancho en la vista para PC */
+  }
+}
+
+/* Reglas generales para el contenedor de detalles de la película */
+.movie-details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+/* Reglas para la imagen */
+.movie-details img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Reglas para la información de la película */
+.movie-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Reglas para la calificación y la cantidad de votos */
+.movie-info .movie-stats {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}

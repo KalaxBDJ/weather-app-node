@@ -3,12 +3,8 @@ nav.navbar
     li.navbar-item
       a(href="/") Home
     li.navbar-item.navbar-dropdown
-      a(href="#") Generos
-      ul.dropdown-content
+      a.dropdown-toggle(href="#", data-toggle="dropdown") Generos
+      ul.dropdown-menu
         each genre in genres
-            li
-                a(href="/genero/"+genre.id) #{genre.name}
-    li.navbar-item
-      a(href="#") Services
-    li.navbar-item
-      a(href="#") Contact
+          li
+            a(href="/genero/"+genre.id) #{genre.name}

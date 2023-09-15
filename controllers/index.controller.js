@@ -69,6 +69,29 @@ async function genre(req, res){
 
 }
 
+async function details(req, res){
+    //Get genres
+    var genres = await getGenres();
+
+    await axios.get(`https://api.themoviedb.org/3/movie/${req.params.id}`,{
+        params : {
+            language:"es-ES"
+        },
+        headers: {
+            Authorization: `Bearer ${process.env.ACCESS_TOKEN}`
+        }
+    }).then(resp => {
+        if(resp.status == 200) {
+            res.render('details', {"movie" : resp.data, "genres": genres});
+        } else {
+            throw new Error('Opss, No pudimos encontrar información sobre esta pelicula.');
+        }
+    }).catch(err => {
+        res.render('error', {"message": 'Opss, No pudimos encontrar información sobre esta pelicula.', "genres": genres});
+    });
+
+}
+
 async function getGenres(){
     //Initialize empty genres array
     var genres = [];
@@ -89,5 +112,6 @@ async function getGenres(){
 
 module.exports = {
     index,
-    genre
+    genre,
+    details
 }
