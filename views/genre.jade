@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  h1= title
+  p Bienvenido a Peliculas App
+
+  ul 
+    each item in movies
+      li=item.title
+      img(src='https://image.tmdb.org/t/p/w220_and_h330_face/' + item.poster_path, alt=item.original_title)
+      p=item.overview

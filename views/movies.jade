@@ -1,0 +1,8 @@
+.card-container
+    each item in movies
+      .card
+        a(href="/detalle/" + item.id) 
+          img.card-img(src='https://image.tmdb.org/t/p/w220_and_h330_face/' + item.poster_path, alt=item.original_title, class='card-image')
+          .card-body
+            h5.card-title= item.title
+            p.card-text= item.overview

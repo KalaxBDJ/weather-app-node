@@ -1,0 +1,10 @@
+nav.navbar
+  ul.navbar-list
+    li.navbar-item
+      a(href="/") Home
+    li.navbar-item.navbar-dropdown
+      a.dropdown-toggle(href="#", data-toggle="dropdown") Generos
+      ul.dropdown-menu
+        each genre in genres
+          li
+            a(href="/genero/"+genre.id) #{genre.name}
