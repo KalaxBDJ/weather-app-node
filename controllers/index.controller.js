@@ -1,20 +1,32 @@
 const axios = require('axios').default;
 
 
-async function index(req, res, next) {
+function index(req, res, next) {
 
-    await axios.get(`http://api.weatherapi.com/v1/current.json`, {
-        params: {
-            key: process.env.API_KEY,
-            q: "colombia"
+
+    axios.get(`https://api.themoviedb.org/3/discover/movie`, {
+        headers : {
+            Authorization : `Bearer ${process.env.ACCESS_TOKEN}`
+        },
+        params : {
+            include_adult:false,
+            include_video:true,
+            language:"es-ES",
+            page:1,
+            sort_by:"popularity.desc"
         }
+
     })
         .then(resp => {
-            res.send(resp.data.current.temp_c);
+            if(resp.status == 200) {
+                res.render('index', {"movies": resp.data.results});
+            } else {
+                throw new Error("Something went wrong, try again.");
+            }
         })
-        .catch(() => {
+        .catch(err  => {
             res.status(500);
-            res.send("Something occurred, Try again.");
+            res.send(err.message);
         })
         
 
