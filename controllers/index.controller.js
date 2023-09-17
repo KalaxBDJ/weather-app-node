@@ -1,5 +1,5 @@
 const axios = require('axios').default;
-
+const title = "Peliculas App";
 
 async function index(req, res, next) {
 
@@ -22,7 +22,11 @@ async function index(req, res, next) {
     })
         .then(resp => {
             if (resp.status == 200) {
-                res.render('index', { "movies": resp.data.results, "genres" : genres });
+                res.render('index', { 
+                    "movies": resp.data.results, 
+                    "genres" : genres,
+                    title
+                });
             } else {
                 throw new Error("Something went wrong, try again.");
             }
@@ -56,7 +60,11 @@ async function genre(req, res){
     })
         .then(resp => {
             if (resp.status == 200) {
-                res.render('index', { "movies": resp.data.results, "genres" : genres });
+                res.render('index', { 
+                    "movies": resp.data.results, 
+                    "genres" : genres,
+                    title
+                });
             } else {
                 throw new Error("Something went wrong, try again.");
             }
